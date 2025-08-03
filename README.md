@@ -15,3 +15,7 @@
 ### 🖥️ Server Information
 * Unit #203: 192.168.0.36:22
 * Unit #204: 192.168.3.188:6000
+
+### 🎫 Account Information
+* ID: `std01` ~ `std25`
+* Password: 123456
