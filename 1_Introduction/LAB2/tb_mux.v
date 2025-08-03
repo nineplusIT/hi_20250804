@@ -9,14 +9,14 @@ module tb_mux (); // top module(no need port)
  reg in_2;
 
 // instantiation of DUT
- mux DUT_MUX
+ mux U0
  (
 	 .out(out),
 	 .sel(sel),
 	 .in_1(in_1),
 	 .in_2(in_2)
  );
-
+// Def Task for repetitive tasks
 task display;
 	begin
 		$display
@@ -30,7 +30,7 @@ task display;
 	end
 endtask
 
-
+// Gen Stimulus
 initial begin
 	sel = 0 ; in_1 = 0; in_2 = 1; #10 ; display;
 	sel = 0 ; in_1 = 1; in_2 = 0; #10 ; display;
@@ -39,5 +39,10 @@ initial begin
 	$finish;
 end
 
+// Gen Dumpfile for post-processing mode
+initial begin
+	$dumpfile("./mux.vcd");
+	$dumpvars(0, tb_mux);
+end
 	
 endmodule

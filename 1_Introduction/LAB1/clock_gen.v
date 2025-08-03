@@ -15,6 +15,11 @@ module clock_gen ();
 		$finish;
 	end
 
+	initial begin
+		$dumpfile("./clock_gen.vcd");
+		$dumpvars(0, clock_gen);
+	end
+
 
 endmodule
 

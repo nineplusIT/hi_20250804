@@ -9,7 +9,7 @@ module tb_mux (); // top module(no need port)
  reg in_2;
 
 // instantiation of DUT
- mux DUT_MUX
+ mux U0
  (
 	 .out(out),
 	 .sel(sel),
@@ -37,6 +37,12 @@ initial begin
 	sel = 1 ; in_1 = 0; in_2 = 1; #10 ; display;
 	sel = 1 ; in_1 = 1; in_2 = 0; #10 ; display;
 	$finish;
+end
+
+
+initial begin
+	$dumpfile("./mux.vcd");
+	$dumpvars(0, tb_mux);
 end
 
 	
