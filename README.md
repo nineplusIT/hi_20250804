@@ -11,3 +11,7 @@
 * Synthesis
 * Logical Equivalence Checking(LEC)
 * Post Synthesis Simulation
+
+### 🖥️ Server Information
+* Unit #203: 192.168.0.36:22
+* Unit #204: 192.168.3.188:6000
