@@ -1,0 +1,43 @@
+`timescale 1ns / 1ps
+
+module tb_mux (); // top module(no need port)
+
+// declaration stimulus signal
+ wire out;
+ reg sel;
+ reg in_1;
+ reg in_2;
+
+// instantiation of DUT
+ mux DUT_MUX
+ (
+	 .out(out),
+	 .sel(sel),
+	 .in_1(in_1),
+	 .in_2(in_2)
+ );
+
+task display;
+	begin
+		$display
+		(
+			"$time=%0d", $time, " ns"
+			, " sel =", sel
+			, " in_1 =", in_1
+			, " in_2 = ", in_2
+			, " out=", out
+		);
+	end
+endtask
+
+
+initial begin
+	sel = 0 ; in_1 = 0; in_2 = 1; #10 ; display;
+	sel = 0 ; in_1 = 1; in_2 = 0; #10 ; display;
+	sel = 1 ; in_1 = 0; in_2 = 1; #10 ; display;
+	sel = 1 ; in_1 = 1; in_2 = 0; #10 ; display;
+	$finish;
+end
+
+	
+endmodule
